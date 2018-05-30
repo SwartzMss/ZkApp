@@ -1,4 +1,4 @@
-CXXFLAGS =  -g3 -O0 -w -fPIC -std=c++11
+CXXFLAGS =  -g3 -O0 -w -fPIC -std=c++11 -DTHREAD
 CXX = g++ -m64
 CC = gcc 
 
@@ -12,8 +12,7 @@ SRC = $(wildcard $(BUILDDIR)/*.c $(BUILDDIR)/*.cpp $(BUILDDIR)/*.cc)
 OBJS = $(patsubst %.cpp,%.o,$(SRC))   
 
 INCLUDES = -I../../depend/zk/include  -I../../depend/hlog/include -I../../depend/xlogger/include\
-
-
+			-I../../depend/common
 LIBDIR = -Wl,-rpath=./ -lpthread -ldl -L../../depend/zk/lib/ -lzookeeper_mt \
 	-L../../depend/xlogger/lib -llog4cxx -lxlogger
 
